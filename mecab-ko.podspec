@@ -10,14 +10,14 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/shirakaba/mecab-ko"
   s.license      = { :type => "BSD", :file => "Assets/BSD" }
   s.author       = package['author']
-  s.platforms    = { :ios => "10.3", :osx => "10.11" }
+  # The lowest versions supported by React Native; we could certainly deploy lower, though I don't know how low.
+  s.platforms    = { :ios => "10.0", :osx => "10.11" }
   s.source       = { :git => "https://github.com/shirakaba/mecab-ko.git", :tag => "v#{s.version}" }
   s.public_header_files = 'Classes/mecab.h', 'ios/*.h'
   s.source_files = 'Classes/*.{cpp,h}', 'ios/*.{m,h}'
   # These are all entry points to Mecab that we don't want to include (because they lead to: "duplicate symbol_main").
   s.exclude_files = 'Classes/mecab-cost-train.cpp', 'Classes/mecab-dict-gen.cpp', 'Classes/mecab-dict-index.cpp', 'Classes/mecab-system-eval.cpp', 'Classes/mecab-test-gen.cpp'
   s.resources    = 'Assets/*'
-
 
   s.xcconfig = {
     'CLANG_ENABLE_OBJC_ARC' => 'NO',

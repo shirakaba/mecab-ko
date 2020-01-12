@@ -63,7 +63,9 @@ japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.partOfSpeech ??
 ### Obj-C invocation
 
 ```objc
-// If use_frameworks! is on, you may have to write instead: mecab_ko.
+// If use_frameworks! is on, you may have to write mecab_ko instead of mecab-ko.
+// This is because Clang modules don't support hyphens:
+// http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/
 #import <mecab-ko/MecabObjC.h>
 #import <mecab-ko/MecabNode.h>
 
