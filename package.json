@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shirakaba/iPhone-libmecab.git"
+    "url": "git+https://github.com/shirakaba/mecab-ko.git"
   },
   "keywords": [
     "mecab",
@@ -23,9 +23,9 @@
   },
   "license": "SEE LICENSE IN Assets/BSD",
   "bugs": {
-    "url": "https://github.com/shirakaba/iPhone-libmecab/issues"
+    "url": "https://github.com/shirakaba/mecab-ko/issues"
   },
-  "homepage": "https://github.com/shirakaba/iPhone-libmecab#readme",
+  "homepage": "https://github.com/shirakaba/mecab-ko#readme",
   "files": [
     "Assets",
     "Classes",

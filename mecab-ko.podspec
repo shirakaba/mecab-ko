@@ -7,11 +7,11 @@ Pod::Spec.new do |s|
   s.name         = package['name']
   s.version      = package['version']
   s.summary      = package['description']
-  s.homepage     = "https://github.com/shirakaba/iPhone-libmecab"
+  s.homepage     = "https://github.com/shirakaba/mecab-ko"
   s.license      = { :type => "BSD", :file => "Assets/BSD" }
   s.author       = package['author']
   s.platforms    = { :ios => "10.3", :osx => "10.11" }
-  s.source       = { :git => "https://github.com/shirakaba/iPhone-libmecab.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/shirakaba/mecab-ko.git", :tag => "v#{s.version}" }
   s.public_header_files = 'Classes/mecab.h', 'ios/*.h'
   s.source_files = 'Classes/*.{cpp,h}', 'ios/*.{m,h}'
   # These are all entry points to Mecab that we don't want to include (because they lead to: "duplicate symbol_main").
