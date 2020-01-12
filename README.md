@@ -57,7 +57,7 @@ let jpBundleResourcePath = Bundle.init(path: jpBundlePath!)!.resourcePath
 
 let mecabJapanese: Mecab = Mecab.init(dicDirPath: jpBundleResourcePath!)
 let japaneseNodes: [MecabNode]? = mecabJapanese.parseToNode(with: "すもももももももものうち")
-japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.partOfSpeech ?? "*") \(node.originalForm ?? "*")") })
+japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.feature)") })
 ```
 
 ### Obj-C invocation
