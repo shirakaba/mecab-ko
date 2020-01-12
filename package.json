@@ -1,6 +1,6 @@
 {
   "name": "mecab-ko",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "mecab-ko - a fork of Mecab, with support for both Japanese and Korean.",
   "main": "index.js",
   "scripts": {
