@@ -47,6 +47,7 @@ Import the necessary `mecab_ko` headers into your class. Allocate and initialize
 ### Swift invocation
 
 ```swift
+// I believe this import requires use_frameworks! to be on. Otherwise, no Swift bridge is provided.
 import mecab_ko
 
 // ...
@@ -62,8 +63,9 @@ japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.partOfSpeech ??
 ### Obj-C invocation
 
 ```objc
-#import <mecab_ko/MecabObjC.h>
-#import <mecab_ko/MecabNode.h>
+// If use_frameworks! is on, you may have to write instead: mecab_ko.
+#import <mecab-ko/MecabObjC.h>
+#import <mecab-ko/MecabNode.h>
 
 // ...
 
