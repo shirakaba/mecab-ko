@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     'CLANG_ENABLE_OBJC_ARC' => 'NO',
     'GCC_PREPROCESSOR_DEFINITIONS' => 'HAVE_CONFIG_H MECAB_DEFAULT_RC=\"./\" DIC_VERSION=102',
   }
-  s.libraries  = 'iconv'
+  s.libraries  = 'iconv', 'c++'
   s.info_plist = {
     'iPhone-libmecab authors' => 'Toshinori Watanabe; Matthew Long; Jamie Birch',
     'iPhone-libmecab special thanks' => 'Joseph Toronto',
