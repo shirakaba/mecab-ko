@@ -45,10 +45,23 @@ pod update
 Import the necessary `mecab_ko` headers into your class. Allocate and initialize a new Mecab object (specifying whether to use the Japanese or Korean dictionary – see links at bottom of this README to obtain these – via the `DEFAULT_JAPANESE_RESOURCES_BUNDLE_NAME` or `DEFAULT_KOREAN_RESOURCES_BUNDLE_NAME` constants) and then supply it a string to parse via the `parseToNodeWithString` method. It'll return an array of nodes that you can then manipulate as needed:
 
 ### Swift invocation
+#### Bridging header
+
+If you have `use_frameworks!` enabled in your Podfile, then you don't need to include a bridging header.
+
+If you don't have it enabled (because you're using only static libraries), then add these imports to your bridging header to expose the Obj-C headers to the Swift runtime:
+
+```objc
+// LibMecabSample-macos-Bridging-Header.h
+// Note how the module is `mecab-ko` in this Obj-C header but `mecab_ko` in Swift!
+#import <mecab-ko/MecabObjC.h>
+#import <mecab-ko/MecabNode.h>
+```
+
+#### Swift file
 
 ```swift
-// I believe this import requires use_frameworks! to be on. Otherwise, no Swift bridge is provided.
-import mecab_ko
+import mecab_ko // Omit this if you have `use_frameworks!` enabled in your Podfile.
 
 // ...
 
@@ -57,7 +70,7 @@ let jpBundleResourcePath = Bundle.init(path: jpBundlePath!)!.resourcePath
 
 let mecabJapanese: Mecab = Mecab.init(dicDirPath: jpBundleResourcePath!)
 let japaneseNodes: [MecabNode]? = mecabJapanese.parseToNode(with: "すもももももももものうち")
-japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.feature)") })
+japaneseNodes?.forEach({ node in print("[\(node.surface)] \(node.feature ?? "")") })
 ```
 
 ### Obj-C invocation
