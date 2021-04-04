@@ -25,7 +25,15 @@ NSString *const DEFAULT_KOREAN_RESOURCES_BUNDLE_NAME = @"mecab-ko-dic-utf-8";
 {
     if(self = [super init])
     {
-        mecab = mecab_new2([[@"--output-format-type=none --dicdir " stringByAppendingString:[NSString stringWithFormat:@"%@", dicDirPath]] UTF8String]);
+        // Note: you could also specify where mecabrc lives by passing in --rcfile
+        NSArray<NSString *> *argv = @[@"--output-format-type=none", @"--dicdir", dicDirPath];
+        
+        const char* testing[argv.count];
+        for (int i = 0; i < argv.count; ++i) {
+            testing[i] = [argv[i] UTF8String];
+        }
+        
+        mecab = mecab_new((int)argv.count, (char **)testing);
         if (mecab == NULL) {
             fprintf(stderr, "error in mecab_new2: %s\n", mecab_strerror(NULL));
             
